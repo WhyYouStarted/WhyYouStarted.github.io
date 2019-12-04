@@ -5,12 +5,12 @@
   <subtitle>Never forget why you started, and your mission can be accomplished.</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://whyyoustarted.github.io/"/>
   <updated>2019-12-03T10:30:10.513Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://whyyoustarted.github.io/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>Liu zhimin</name>
     
   </author>
   
@@ -18,8 +18,8 @@
   
   <entry>
     <title>xml笔记</title>
-    <link href="http://yoursite.com/2019/12/03/xml%E7%AC%94%E8%AE%B0/"/>
-    <id>http://yoursite.com/2019/12/03/xml%E7%AC%94%E8%AE%B0/</id>
+    <link href="https://whyyoustarted.github.io/2019/12/03/xml%E7%AC%94%E8%AE%B0/"/>
+    <id>https://whyyoustarted.github.io/2019/12/03/xml%E7%AC%94%E8%AE%B0/</id>
     <published>2019-12-03T09:49:14.000Z</published>
     <updated>2019-12-03T10:30:10.513Z</updated>
     
@@ -43,8 +43,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2019/11/13/hello-world/"/>
-    <id>http://yoursite.com/2019/11/13/hello-world/</id>
+    <link href="https://whyyoustarted.github.io/2019/11/13/hello-world/"/>
+    <id>https://whyyoustarted.github.io/2019/11/13/hello-world/</id>
     <published>2019-11-13T01:13:11.068Z</published>
     <updated>2019-11-13T01:13:11.068Z</updated>
     
