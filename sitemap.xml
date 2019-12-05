@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://whyyoustarted.github.io/about/index.html</loc>
+    <loc>https://whyyoustarted.github.io/2019/12/03/xml%25E7%25AC%2594%25E8%25AE%25B0/</loc>
     
-    <lastmod>2019-12-05T13:38:12.826Z</lastmod>
+    <lastmod>2019-12-05T14:49:49.539Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://whyyoustarted.github.io/2019/12/03/xml%25E7%25AC%2594%25E8%25AE%25B0/</loc>
+    <loc>https://whyyoustarted.github.io/tags/index.html</loc>
     
-    <lastmod>2019-12-03T10:30:10.513Z</lastmod>
+    <lastmod>2019-12-05T14:43:24.922Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://whyyoustarted.github.io/categories/index.html</loc>
+    
+    <lastmod>2019-12-05T14:41:37.420Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://whyyoustarted.github.io/about/index.html</loc>
+    
+    <lastmod>2019-12-05T13:38:12.826Z</lastmod>
     
   </url>
   
