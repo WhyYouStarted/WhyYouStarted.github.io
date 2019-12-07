@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://whyyoustarted.github.io/2019/1203/xml-notes.html</loc>
-    <lastmod>2019-12-06</lastmod>
+    <loc>https://whyyoustarted.github.io/2019/1207/set-up-your-own-hexo-blog-under-mac-2.html</loc>
+    <lastmod>2019-12-07</lastmod>
   </url>  <url>
     <loc>https://whyyoustarted.github.io/2019/1206/set-up-your-own-hexo-blog-under-mac-1.html</loc>
+    <lastmod>2019-12-07</lastmod>
+  </url>  <url>
+    <loc>https://whyyoustarted.github.io/2019/1203/xml-notes.html</loc>
     <lastmod>2019-12-06</lastmod>
   </url>  <url>
     <loc>https://whyyoustarted.github.io/2019/1113/hello-world.html</loc>
