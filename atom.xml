@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://whyyoustarted.github.io/"/>
-  <updated>2019-12-16T02:26:51.592Z</updated>
+  <updated>2019-12-16T11:31:26.577Z</updated>
   <id>https://whyyoustarted.github.io/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Mac下Maven出现JAVA_HOME is not defined correctly问题</title>
+    <link href="https://whyyoustarted.github.io/2019/1216/javahome-is-not-defined-correctly-with-maven-on-mac.html"/>
+    <id>https://whyyoustarted.github.io/2019/1216/javahome-is-not-defined-correctly-with-maven-on-mac.html</id>
+    <published>2019-12-16T03:48:21.000Z</published>
+    <updated>2019-12-16T11:31:26.577Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在配置好Maven后在终端中输入<code>mvn -v</code>终端显示<code>JAVA_HOME is not defined correctly</code></p><p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/Maven/%E6%88%AA%E5%B1%8F2019-12-16%E4%B8%8B%E5%8D%887.13.28.png" alt="截屏2019-12-16下午7.13.28"></p><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>编辑<code>.bash_profile</code>，在此文件中添加一行<code>export JAVA_HOME=$(/usr/libexec/java_home)</code>，可以解决此问题</p><p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/Maven/%E6%88%AA%E5%B1%8F2019-12-16%E4%B8%8B%E5%8D%887.26.08.png" alt="截屏2019-12-16下午7.26.08"></p><p>使用<code>mvn -v</code>正常</p><p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/Maven/%E6%88%AA%E5%B1%8F2019-12-16%E4%B8%8B%E5%8D%887.26.57.png" alt="截屏2019-12-16下午7.26.57"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;在配置好Maven后在终端中输入&lt;code&gt;mvn -v&lt;/code&gt;终端显示&lt;code&gt;JAVA_HOME is not defined 
+      
+    
+    </summary>
+    
+    
+      <category term="Maven" scheme="https://whyyoustarted.github.io/categories/Maven/"/>
+    
+    
+      <category term="Maven" scheme="https://whyyoustarted.github.io/tags/Maven/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Mac下安装Maven</title>
     <link href="https://whyyoustarted.github.io/2019/1216/install-maven-on-mac.html"/>
     <id>https://whyyoustarted.github.io/2019/1216/install-maven-on-mac.html</id>
     <published>2019-12-16T02:07:39.000Z</published>
-    <updated>2019-12-16T02:26:51.592Z</updated>
+    <updated>2019-12-16T03:26:31.405Z</updated>
     
     <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本篇博客将在MAC上安装Maven，配置Maven</p><p>注意：在mac下安装Maven必须以及安装了JDK，如果没有安装JDK请参考···········</p><h2 id="1-下载Maven"><a href="#1-下载Maven" class="headerlink" title="1.下载Maven"></a>1.下载Maven</h2><p>在MAVEN的<a href="https://maven.apache.org/download.cgi" target="_blank" rel="noopener">官网https://maven.apache.org/download.cgi</a>进行下载MAVEN</p><p>本人下载的是3.3.9，在archives下的<code>3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz</code></p><p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/Maven/%E6%88%AA%E5%B1%8F2019-12-16%E4%B8%8A%E5%8D%889.21.53.png" alt="截屏2019-12-16上午9.21.53"></p><p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/Maven/%E6%88%AA%E5%B1%8F2019-12-16%E4%B8%8A%E5%8D%889.23.30.png" alt="截屏2019-12-16上午9.23.30"></p><h2 id="2-配置Maven"><a href="#2-配置Maven" class="headerlink" title="2.配置Maven"></a>2.配置Maven</h2><ol><li>安装：<ul><li>将下载好的文件解压到user目录下</li></ul></li></ol><p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/Maven/%E6%88%AA%E5%B1%8F2019-12-16%E4%B8%8A%E5%8D%889.51.49.png" alt="截屏2019-12-16上午9.51.49"></p><ol start="2"><li><p>配置：</p><ol><li>在终端中输入 <code>vim ~/.bash_profile</code></li><li>在<strong>英文状态</strong>下按下<code>i</code>，进入编辑模式</li><li>在环境变量文件中加上如下的配置</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export MAVEN_HOME=/Users/你的users名字/apache-maven-3.3.9 </span><br><span class="line">export PATH=$PATH:$MAVEN_HOME/bin</span><br></pre></td></tr></table></figure><ol><li><p>添加完以后按<code>esc</code>键并在<strong>英文状态</strong>下输入<code>:wq</code>进行保存</p></li><li><p>将<code>~/.bash_profile</code>编辑完后在终端输入<code>source .bash_profile</code>使<code>bash_profile</code>配置文件生效</p><p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/Maven/%E6%88%AA%E5%B1%8F2019-12-16%E4%B8%8A%E5%8D%889.48.55.png" alt="截屏2019-12-16上午9.48.55"></p></li></ol></li></ol><p>   ​    <img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/Maven/%E6%88%AA%E5%B1%8F2019-12-16%E4%B8%8A%E5%8D%889.47.32.png" alt="截屏2019-12-16上午9.47.32"></p><h2 id="3-测试Maven"><a href="#3-测试Maven" class="headerlink" title="3. 测试Maven"></a>3. 测试Maven</h2><ul><li><p>在终端中输入<code>mvn -v</code>，如果出现以下信息就说明配置完成了。</p><p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/Maven/%E6%88%AA%E5%B1%8F2019-12-16%E4%B8%8A%E5%8D%8810.02.37.png" alt="截屏2019-12-16上午10.02.37"></p></li></ul><ul><li>如果在终端中输入<code>mvn -v</code>出现<code>JAVA_HOME is not defined correctly.</code>,请参考···········</li></ul>]]></content>
     
