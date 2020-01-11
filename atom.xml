@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://whyyoustarted.github.io/"/>
-  <updated>2019-12-25T03:21:05.748Z</updated>
+  <updated>2020-01-11T11:12:07.833Z</updated>
   <id>https://whyyoustarted.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MAC下安装JDK以及配置环境</title>
+    <link href="https://whyyoustarted.github.io/2020/0108/install-jdk-and-configure-environment-under-mac.html"/>
+    <id>https://whyyoustarted.github.io/2020/0108/install-jdk-and-configure-environment-under-mac.html</id>
+    <published>2020-01-08T11:53:54.000Z</published>
+    <updated>2020-01-11T11:12:07.833Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="MAC下安装JDK以及配置环境"><a href="#MAC下安装JDK以及配置环境" class="headerlink" title="MAC下安装JDK以及配置环境"></a>MAC下安装JDK以及配置环境</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul><li>本文将展示如何在MAC系统下安装并配置JDK</li></ul><h2 id="下载JDK"><a href="#下载JDK" class="headerlink" title="下载JDK"></a>下载JDK</h2><p>前往<a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">Oracle官网</a>选择JDK1.8并进行下载</p><p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/jdk/%E6%88%AA%E5%B1%8F2020-01-08%E4%B8%8B%E5%8D%888.09.25.png" alt="截屏2020-01-08下午8.09.25"></p><p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/jdk/%E6%88%AA%E5%B1%8F2020-01-08%E4%B8%8B%E5%8D%888.10.53.png" alt="截屏2020-01-08下午8.10.53"></p><p>下载完成后点击安装包，按提示即可完成安装。</p><h2 id="配置JDK"><a href="#配置JDK" class="headerlink" title="配置JDK"></a>配置JDK</h2><p>现在我们只是将JDK按照到了MAC上，但是现在只能在JAVA安装目录下运行JAVA的命令，现在需要配置环境变量，方便我们随时的运行JAVA命令。</p><p>jdk安装好的路径可以在访达中的<code>资源库/Java/JavaVirtualMachines//jdk1.8.0_231.jdk/Contents/Home</code>，具体路径可以自己查看一下，如果不一样一般也是JDK版本不一样。</p><p>在终端中输入<code>cd ~</code>，回车在输入<code>vim .bash_profile</code></p><p>在英文状态下按<code>i</code>，进入编辑模式 </p><p>输入以下内容，路径以自己实际路径为准</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home</span><br></pre></td></tr></table></figure><p>在英文状态下，点击Esc结束输入模式，输入 :wq 回车保存并推出。</p><p>验证JDK是否安装成功可以在终端输入<code>javac</code>，如果出现如下信息就配置成功了。</p><p><img src="!%5B%5D(https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/jdk/%E6%88%AA%E5%B1%8F2020-01-11%E4%B8%8B%E5%8D%887.05.42.png)" alt="截屏2020-01-11下午7.05.42"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;MAC下安装JDK以及配置环境&quot;&gt;&lt;a href=&quot;#MAC下安装JDK以及配置环境&quot; class=&quot;headerlink&quot; title=&quot;MAC下安装JDK以及配置环境&quot;&gt;&lt;/a&gt;MAC下安装JDK以及配置环境&lt;/h1&gt;&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;
+      
+    
+    </summary>
+    
+    
+      <category term="系统" scheme="https://whyyoustarted.github.io/categories/%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+      <category term="JDK" scheme="https://whyyoustarted.github.io/tags/JDK/"/>
+    
+  </entry>
   
   <entry>
     <title>Mac 每次打开终端要再次执行source ~/.bash_profile 配置的环境变量才生效</title>
