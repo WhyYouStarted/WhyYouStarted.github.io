@@ -18,18 +18,18 @@
   
   
   <title>MAC下安装JDK以及配置环境 | 初心</title>
-  <meta name="description" content="MAC下安装JDK以及配置环境前言 本文将展示如何在MAC系统下安装并配置JDK  下载JDK前往Oracle官网选择JDK1.8并进行下载   下载完成后点击安装包，按提示即可完成安装。 配置JDK现在我们只是将JDK按照到了MAC上，但是现在只能在JAVA安装目录下运行JAVA的命令，现在需要配置环境变量，方便我们随时的运行JAVA命令。 jdk安装好的路径可以在访达中的资源库&#x2F;Java&#x2F;Ja">
+  <meta name="description" content="前言 本文将展示如何在MAC系统下安装并配置JDK  下载JDK前往Oracle官网选择JDK1.8并进行下载   下载完成后点击安装包，按提示即可完成安装。 配置JDK现在我们只是将JDK按照到了MAC上，但是现在只能在JAVA安装目录下运行JAVA的命令，现在需要配置环境变量，方便我们随时的运行JAVA命令。 jdk安装好的路径可以在访达中的资源库&#x2F;Java&#x2F;JavaVirtualMachin">
 <meta name="keywords" content="JDK">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MAC下安装JDK以及配置环境">
 <meta property="og:url" content="https:&#x2F;&#x2F;whyyoustarted.github.io&#x2F;2020&#x2F;0108&#x2F;install-jdk-and-configure-environment-under-mac.html">
 <meta property="og:site_name" content="初心">
-<meta property="og:description" content="MAC下安装JDK以及配置环境前言 本文将展示如何在MAC系统下安装并配置JDK  下载JDK前往Oracle官网选择JDK1.8并进行下载   下载完成后点击安装包，按提示即可完成安装。 配置JDK现在我们只是将JDK按照到了MAC上，但是现在只能在JAVA安装目录下运行JAVA的命令，现在需要配置环境变量，方便我们随时的运行JAVA命令。 jdk安装好的路径可以在访达中的资源库&#x2F;Java&#x2F;Ja">
+<meta property="og:description" content="前言 本文将展示如何在MAC系统下安装并配置JDK  下载JDK前往Oracle官网选择JDK1.8并进行下载   下载完成后点击安装包，按提示即可完成安装。 配置JDK现在我们只是将JDK按照到了MAC上，但是现在只能在JAVA安装目录下运行JAVA的命令，现在需要配置环境变量，方便我们随时的运行JAVA命令。 jdk安装好的路径可以在访达中的资源库&#x2F;Java&#x2F;JavaVirtualMachin">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;WhyYouStarted&#x2F;PhotoGallery@master&#x2F;images&#x2F;jdk&#x2F;%E6%88%AA%E5%B1%8F2020-01-08%E4%B8%8B%E5%8D%888.09.25.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;WhyYouStarted&#x2F;PhotoGallery@master&#x2F;images&#x2F;jdk&#x2F;%E6%88%AA%E5%B1%8F2020-01-08%E4%B8%8B%E5%8D%888.10.53.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;whyyoustarted.github.io&#x2F;2020&#x2F;0108&#x2F;!%5B%5D(https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;WhyYouStarted&#x2F;PhotoGallery@master&#x2F;images&#x2F;jdk&#x2F;%E6%88%AA%E5%B1%8F2020-01-11%E4%B8%8B%E5%8D%887.05.42.png)">
-<meta property="og:updated_time" content="2020-01-11T11:12:07.833Z">
+<meta property="og:updated_time" content="2020-01-11T11:17:05.737Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;WhyYouStarted&#x2F;PhotoGallery@master&#x2F;images&#x2F;jdk&#x2F;%E6%88%AA%E5%B1%8F2020-01-08%E4%B8%8B%E5%8D%888.09.25.png">
   <!-- Canonical links -->
@@ -377,7 +377,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/0108/install-jdk-and-configure-environment-under-mac.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 281(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 271(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -387,7 +387,7 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1 id="MAC下安装JDK以及配置环境"><a href="#MAC下安装JDK以及配置环境" class="headerlink" title="MAC下安装JDK以及配置环境"></a>MAC下安装JDK以及配置环境</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
 <li>本文将展示如何在MAC系统下安装并配置JDK</li>
 </ul>
 <h2 id="下载JDK"><a href="#下载JDK" class="headerlink" title="下载JDK"></a>下载JDK</h2><p>前往<a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">Oracle官网</a>选择JDK1.8并进行下载</p>
