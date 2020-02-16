@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://whyyoustarted.github.io/"/>
-  <updated>2020-01-11T11:19:41.064Z</updated>
+  <updated>2020-02-16T07:39:27.723Z</updated>
   <id>https://whyyoustarted.github.io/</id>
   
   <author>
@@ -15,6 +15,86 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ubuntu apt update一直等待的解决办法</title>
+    <link href="https://whyyoustarted.github.io/2020/0216/solution-that-ubuntu-apt-update-has-been-waiting-for.html"/>
+    <id>https://whyyoustarted.github.io/2020/0216/solution-that-ubuntu-apt-update-has-been-waiting-for.html</id>
+    <published>2020-02-16T07:33:33.000Z</published>
+    <updated>2020-02-16T07:39:27.723Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文转载自：<a href="https://blog.csdn.net/notacoder/article/details/102680465" target="_blank" rel="noopener">https://blog.csdn.net/notacoder/article/details/102680465</a></p><p>需要删除以下几个lock file就OK了</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo rm /var/lib/apt/lists/lock</span><br><span class="line">sudo rm /var/cache/apt/archives/lock</span><br><span class="line">sudo rm /var/lib/dpkg/lock</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;本文转载自：&lt;a href=&quot;https://blog.csdn.net/notacoder/article/details/102680465&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/notacoder/
+      
+    
+    </summary>
+    
+    
+      <category term="Ubuntu" scheme="https://whyyoustarted.github.io/categories/Ubuntu/"/>
+    
+    
+      <category term="Ubuntu" scheme="https://whyyoustarted.github.io/tags/Ubuntu/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu安装openssh-server遇到的问题</title>
+    <link href="https://whyyoustarted.github.io/2020/0216/problems-encountered-in-installing-opensshserver-ubuntu.html"/>
+    <id>https://whyyoustarted.github.io/2020/0216/problems-encountered-in-installing-opensshserver-ubuntu.html</id>
+    <published>2020-02-16T07:16:14.000Z</published>
+    <updated>2020-02-16T07:32:12.161Z</updated>
+    
+    <content type="html"><![CDATA[<p>使用命令<code>sudo apt-get install openssh-server</code>但是报如下结果</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">完成正在分析软件包的依赖关系树正在读取状态信息...</span><br><span class="line">完成现在没有可用的软件包 openssh-server，</span><br><span class="line">但是他被其他的软件包引用了这可能意味着这个缺失的软件包可能已被废弃，或者只能在其他发布源中找到</span><br><span class="line">E:软件包 openssh-server 还没有可供安装的候选者</span><br></pre></td></tr></table></figure><p>上网查到的资料原因是：Ubuntu的软件源问题</p><p>所以需要我们更换源，我们可以使用电脑自带的寻找服务器的方法。</p><ol><li>在Ubuntu的设置中的软件和更新</li></ol><pre><code>![截屏2020-02-16下午3.22.22](/Users/liuzhimin/Desktop/截屏2020-02-16下午3.22.22.png)</code></pre><ol start="2"><li>下载自下拉框中的其他站点</li></ol><pre><code>![截屏2020-02-16下午3.23.02](/Users/liuzhimin/Desktop/截屏2020-02-16下午3.23.02.png)</code></pre><ol start="3"><li>选择阿里云的镜像源，选择服务器，这里需要权限密码</li></ol><pre><code>![截屏2020-02-16下午3.24.30](/Users/liuzhimin/Desktop/截屏2020-02-16下午3.24.30.png)</code></pre><ol start="4"><li>关闭的时候需要重新载入一下，如果这里卡在waiting for unattended-upgr to exit不动到话请参考········</li></ol><pre><code>![截屏2020-02-16下午3.24.58](/Users/liuzhimin/Desktop/截屏2020-02-16下午3.24.58.png)</code></pre><ol start="5"><li>等待进度条走完后，执行<code>sudo apt-get update</code></li></ol><p>注意：如果还是没解决的话可以看一下下面的参考博客</p><p>参考博客：<a href="https://www.cnblogs.com/liangyue/p/8231556.html" target="_blank" rel="noopener">https://www.cnblogs.com/liangyue/p/8231556.html</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;使用命令&lt;code&gt;sudo apt-get install openssh-server&lt;/code&gt;但是报如下结果&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span 
+      
+    
+    </summary>
+    
+    
+      <category term="Ubuntu" scheme="https://whyyoustarted.github.io/categories/Ubuntu/"/>
+    
+    
+      <category term="Ubuntu" scheme="https://whyyoustarted.github.io/tags/Ubuntu/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu下 ssh : connect to host localhost port 22:Connection refused</title>
+    <link href="https://whyyoustarted.github.io/2020/0216/ssh-under-ubuntu-connect-to-host-localhost-port-22-connection-refused.html"/>
+    <id>https://whyyoustarted.github.io/2020/0216/ssh-under-ubuntu-connect-to-host-localhost-port-22-connection-refused.html</id>
+    <published>2020-02-16T06:50:20.000Z</published>
+    <updated>2020-02-16T07:15:37.371Z</updated>
+    
+    <content type="html"><![CDATA[<p>Ubuntu下测试ssh时使用ssh localhost 命令，出现错误提示connect to host localhost port 22:Connection refused</p><p>造成这个错误的原因可能是ssh-server未安装或者未启动。ubuntu 16.04 默认安装openssh-client，但是没有安装server</p><p>所以使用<code>ps -e | grep ssh</code>来查看是否有sshd进程，如果没有出现类似下图的信息，那么说明server没启动，通过命令 <code>/etc/init.d/ssh -start</code> 来启动server进程，如果提示ssh不存在 那么就是没安装server</p><p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/ubuntu/%E6%88%AA%E5%B1%8F2020-02-16%E4%B8%8B%E5%8D%882.57.30.png" alt=""></p><p>可以使用命令<code>sudo apt-get install openssh-server</code>进行安装，如果出现如下错误可以参考···········</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">完成正在分析软件包的依赖关系树正在读取状态信息...</span><br><span class="line">完成现在没有可用的软件包 openssh-server，</span><br><span class="line">但是他被其他的软件包引用了这可能意味着这个缺失的软件包可能已被废弃，或者只能在其他发布源中找到</span><br><span class="line">E:软件包 openssh-server 还没有可供安装的候选者</span><br></pre></td></tr></table></figure><p>本文参考：<a href="http://asyty.iteye.com/blog/1440141" target="_blank" rel="noopener">http://asyty.iteye.com/blog/1440141</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Ubuntu下测试ssh时使用ssh localhost 命令，出现错误提示connect to host localhost port 22:Connection refused&lt;/p&gt;
+&lt;p&gt;造成这个错误的原因可能是ssh-server未安装或者未启动。ubuntu 1
+      
+    
+    </summary>
+    
+    
+      <category term="Ubuntu" scheme="https://whyyoustarted.github.io/categories/Ubuntu/"/>
+    
+    
+      <category term="Ubuntu" scheme="https://whyyoustarted.github.io/tags/Ubuntu/"/>
+    
+  </entry>
   
   <entry>
     <title>MAC下安装JDK以及配置环境</title>
@@ -47,10 +127,10 @@
   
   <entry>
     <title>Mac 每次打开终端要再次执行source ~/.bash_profile 配置的环境变量才生效</title>
-    <link href="https://whyyoustarted.github.io/2019/1225/every-time-you-open-the-mac-must-execute-source-bashprofile-environment-variable-configuration-again-to-take-effect.html"/>
-    <id>https://whyyoustarted.github.io/2019/1225/every-time-you-open-the-mac-must-execute-source-bashprofile-environment-variable-configuration-again-to-take-effect.html</id>
+    <link href="https://whyyoustarted.github.io/2019/1225/every-time-you-open-a-mac-must-execute-the-source-bashprofile-environment-variable-configuration-again-to-take-effect.html"/>
+    <id>https://whyyoustarted.github.io/2019/1225/every-time-you-open-a-mac-must-execute-the-source-bashprofile-environment-variable-configuration-again-to-take-effect.html</id>
     <published>2019-12-25T03:06:50.000Z</published>
-    <updated>2019-12-25T03:21:05.748Z</updated>
+    <updated>2020-02-16T07:06:16.771Z</updated>
     
     <content type="html"><![CDATA[<h2 id="出现问题"><a href="#出现问题" class="headerlink" title="出现问题"></a>出现问题</h2><p>自己在 <code>~/.bash_profile</code> 中配置环境变量, 可是每次重启终端后配置的不生效.需要使用命令 <code>source ~/.bash_profile</code>使<code>.bash_profile</code>生效</p><h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>发现zsh加载的是<code>~/.zshrc</code>文件，而 <code>.zshrc</code> 文件中并没有定义任务环境变量。</p><p>在<code>~/.zshrc</code>文件最后，增加一行：<code>source ~/.bash_profile</code>，即可</p>]]></content>
     
@@ -128,10 +208,10 @@
   
   <entry>
     <title>在MAC下搭建专属你的hexo博客(二)</title>
-    <link href="https://whyyoustarted.github.io/2019/1207/set-up-your-own-hexo-blog-under-mac-2.html"/>
-    <id>https://whyyoustarted.github.io/2019/1207/set-up-your-own-hexo-blog-under-mac-2.html</id>
+    <link href="https://whyyoustarted.github.io/2019/1207/build-your-own-hexo-blog-under-mac-2.html"/>
+    <id>https://whyyoustarted.github.io/2019/1207/build-your-own-hexo-blog-under-mac-2.html</id>
     <published>2019-12-07T02:18:21.000Z</published>
-    <updated>2019-12-08T07:26:25.433Z</updated>
+    <updated>2020-02-16T07:06:16.825Z</updated>
     
     <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一篇已经为大家介绍了如何在创建一个博客，那么接下来展示如何将本地的博客部署在免费的GitHub仓库上，这样你就可以通过GitHub地址来访问博客</p><h2 id="1-注册GitHub"><a href="#1-注册GitHub" class="headerlink" title="1. 注册GitHub"></a>1. 注册GitHub</h2><p>GitHub可以说是程序员的天堂，里面有很多开源免费的软件或者项目，都9102年了，你还没有GitHub你就out了，当然你如果有GitHub请跳过前几步。</p><p><a href="https://github.com" target="_blank" rel="noopener">GitHub官网https://github.com</a></p><p>1.注册</p><p>进入官网后点击<code>Sign up</code>，进行注册</p><p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/BuildBlog/%E6%88%AA%E5%B1%8F2019-12-07%E4%B8%8A%E5%8D%88110.54.png" alt=""></p><p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/BuildBlog/%E6%88%AA%E5%B1%8F2019-12-07%E4%B8%8A%E5%8D%8811.04.04.png" alt=""></p><p>填完信息以后你需要验证</p><p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/BuildBlog/%E6%88%AA%E5%B1%8F2019-12-07%E4%B8%8A%E5%8D%8811.12.23.png" alt=""></p><p>验证完成后点击next，然后出现让你选择免费版和付费版，这里我们选择免费版（当然大佬有钱随意选择）</p><p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/BuildBlog/%E6%88%AA%E5%B1%8F2019-12-07%E4%B8%8A%E5%8D%88111.14.03.png" alt=""></p><p>然后是一些问卷，如实填写就行</p><p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/BuildBlog/%E6%88%AA%E5%B1%8F2019-12-07%E4%B8%8A%E5%8D%8811.20.41.png" alt=""></p><p>填完后选择Complete setup 或者选择skip this step跳过问卷，然后会验证你的邮箱</p><p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/BuildBlog/%E6%88%AA%E5%B1%8F2019-12-07%E4%B8%8A%E5%8D%8811.24.45.png" alt=""></p><p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/BuildBlog/%E6%88%AA%E5%B1%8F2019-12-07%E4%B8%8A%E5%8D%8811.26.31.png" alt=""></p><p>点击验证后会跳转到你的GitHub，在这里我们创建存放我们博客的仓库。</p><p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/BuildBlog/%E6%88%AA%E5%B1%8F2019-12-07%E4%B8%8A%E5%8D%8811.33.49.png" alt=""></p><p>填完以后点击Create repository，跳转到以下界面</p><p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/BuildBlog/%E6%88%AA%E5%B1%8F2019-12-07%E4%B8%8A%E5%8D%8811.40.33.png" alt=""></p><p>这样你的GitHub仓库就准备好了，下面开始将博客部署到GitHub上。</p><h2 id="2-将hexo博客推送到GitHub上"><a href="#2-将hexo博客推送到GitHub上" class="headerlink" title="2. 将hexo博客推送到GitHub上"></a>2. 将hexo博客推送到GitHub上</h2><p>在终端中输入<code>sudo su</code> 并输入密码进入超级管理员，在终端上输入pwd 看看自己是不是在<code>myblog</code>目录下，如果不在就进入<code>myblog</code>,然后终端输入<code>cnpm install --save hexo-deployer-git</code></p><p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/BuildBlog/%E6%88%AA%E5%B1%8F2019-12-07%E4%B8%8B%E5%8D%882.25.52.png" alt=""></p><p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/BuildBlog/%E6%88%AA%E5%B1%8F2019-12-07%E4%B8%8B%E5%8D%882.04.09.png" alt=""></p><p>现在我们需要设置mybolg下的<code>_config.yml</code>文件，找到最下面的<code>Deployment</code></p><p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/BuildBlog/%E6%88%AA%E5%B1%8F2019-12-07%E4%B8%8B%E5%8D%882.10.09.png" alt=""></p><p>将其修改为如下图并保存</p><p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/BuildBlog/%E6%88%AA%E5%B1%8F2019-12-07%E4%B8%8B%E5%8D%8821.12.07.png" alt=""></p><p><font color='red'><strong>注意有<code>:</code>后有空格</strong></font></p><p>在终端中输入<code>hexo g</code>构建博客</p><p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/BuildBlog/%E6%88%AA%E5%B1%8F2019-12-07%E4%B8%8B%E5%8D%882.28.18.png" alt=""></p><p>现在可以输入<code>hexo s</code>里本地预览你博客的样子</p><p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/BuildBlog/%E6%88%AA%E5%B1%8F2019-12-07%E4%B8%8B%E5%8D%882.30.31.png" alt=""></p><p>在浏览器的搜索栏中输入<code>http://localhost:4000/</code>就可以看到了</p><p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/BuildBlog/%E6%88%AA%E5%B1%8F2019-12-07%E4%B8%8B%E5%8D%882.32.16.png" alt=""></p><p>使用<code>control + c</code>结束本地预览</p><p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/BuildBlog/%E6%88%AA%E5%B1%8F2019-12-07%E4%B8%8B%E5%8D%882.35.29.png" alt=""></p><p>在终端中输入<code>hexo d</code>，输入GitHub账号和密码</p><p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/BuildBlog/%E6%88%AA%E5%B1%8F2019-12-07%E4%B8%8B%E5%8D%882.49.34.png" alt=""></p><p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/BuildBlog/%E6%88%AA%E5%B1%8F2019-12-07%E4%B8%8B%E5%8D%882.50.35.png" alt=""></p><p>出现了<code>Deploy done: git</code>就说明部署上去了</p><p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/BuildBlog/%E6%88%AA%E5%B1%8F2019-12-07%E4%B8%8B%E5%8D%882.56.20.png" alt=""></p><p>现在我们只需要在网址栏输入<code>GitHub账号.github.io</code>就可以访问你的博客了。</p><p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/BuildBlog/%E6%88%AA%E5%B1%8F2019-12-07%E4%B8%8B%E5%8D%882.59.17.png" alt=""></p><p>这样我们就成功把博客部署到了GitHub上了，下一篇将展示如何配置pure主题</p>]]></content>
     

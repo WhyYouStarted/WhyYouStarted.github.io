@@ -17,15 +17,19 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>归档: 2020/1 | 初心</title>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="初心">
-<meta property="og:url" content="https:&#x2F;&#x2F;whyyoustarted.github.io&#x2F;archives&#x2F;2020&#x2F;01&#x2F;index.html">
+  <title>Ubuntu安装openssh-server遇到的问题 | 初心</title>
+  <meta name="description" content="使用命令sudo apt-get install openssh-server但是报如下结果 1234完成正在分析软件包的依赖关系树正在读取状态信息...完成现在没有可用的软件包 openssh-server，但是他被其他的软件包引用了这可能意味着这个缺失的软件包可能已被废弃，或者只能在其他发布源中找到E:软件包 openssh-server 还没有可供安装的候选者  上网查到的资料原因是：Ubu">
+<meta name="keywords" content="Ubuntu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu安装openssh-server遇到的问题">
+<meta property="og:url" content="https:&#x2F;&#x2F;whyyoustarted.github.io&#x2F;2020&#x2F;0216&#x2F;problems-encountered-in-installing-opensshserver-ubuntu.html">
 <meta property="og:site_name" content="初心">
+<meta property="og:description" content="使用命令sudo apt-get install openssh-server但是报如下结果 1234完成正在分析软件包的依赖关系树正在读取状态信息...完成现在没有可用的软件包 openssh-server，但是他被其他的软件包引用了这可能意味着这个缺失的软件包可能已被废弃，或者只能在其他发布源中找到E:软件包 openssh-server 还没有可供安装的候选者  上网查到的资料原因是：Ubu">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-02-16T07:32:12.161Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://whyyoustarted.github.io/archives/2020/01/index.html">
+  <link rel="canonical" href="https://whyyoustarted.github.io/2020/0216/problems-encountered-in-installing-opensshserver-ubuntu.html">
   
     <link rel="alternate" href="/atom.xml" title="初心" type="application/atom+xml">
   
@@ -34,6 +38,8 @@
   
   <link rel="stylesheet" href="/css/style.css">
   
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css">
   
   
   
@@ -322,48 +328,208 @@
   <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
   
 <main class="main" role="main">
-  	<article class="content article article-archives article-type-list" itemscope="">
-	    <header class="article-header">
-	      <h1 itemprop="title">归档: 2020/1</h1>
-	      <p class="text-muted">共 1 篇文章</p>
-	    </header>
-	    <div class="article-body">
-	      
+  <div class="content">
+  <article id="post-Ubuntu安装openssh-server遇到的问题" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
   
+    <h1 class="article-title" itemprop="name">
+      Ubuntu安装openssh-server遇到的问题
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/0216/problems-encountered-in-installing-opensshserver-ubuntu.html" class="article-date">
+	  <time datetime="2020-02-16T07:16:14.000Z" itemprop="datePublished">2020-02-16</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Ubuntu/">Ubuntu</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/0216/problems-encountered-in-installing-opensshserver-ubuntu.html#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 378(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>使用命令<code>sudo apt-get install openssh-server</code>但是报如下结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">完成正在分析软件包的依赖关系树正在读取状态信息...</span><br><span class="line">完成现在没有可用的软件包 openssh-server，</span><br><span class="line">但是他被其他的软件包引用了这可能意味着这个缺失的软件包可能已被废弃，或者只能在其他发布源中找到</span><br><span class="line">E:软件包 openssh-server 还没有可供安装的候选者</span><br></pre></td></tr></table></figure>
+
+<p>上网查到的资料原因是：Ubuntu的软件源问题</p>
+<p>所以需要我们更换源，我们可以使用电脑自带的寻找服务器的方法。</p>
+<ol>
+<li>在Ubuntu的设置中的软件和更新</li>
+</ol>
+<pre><code>![截屏2020-02-16下午3.22.22](/Users/liuzhimin/Desktop/截屏2020-02-16下午3.22.22.png)</code></pre><ol start="2">
+<li>下载自下拉框中的其他站点</li>
+</ol>
+<pre><code>![截屏2020-02-16下午3.23.02](/Users/liuzhimin/Desktop/截屏2020-02-16下午3.23.02.png)</code></pre><ol start="3">
+<li>选择阿里云的镜像源，选择服务器，这里需要权限密码</li>
+</ol>
+<pre><code>![截屏2020-02-16下午3.24.30](/Users/liuzhimin/Desktop/截屏2020-02-16下午3.24.30.png)</code></pre><ol start="4">
+<li>关闭的时候需要重新载入一下，如果这里卡在waiting for unattended-upgr to exit不动到话请参考········</li>
+</ol>
+<pre><code>![截屏2020-02-16下午3.24.58](/Users/liuzhimin/Desktop/截屏2020-02-16下午3.24.58.png)</code></pre><ol start="5">
+<li>等待进度条走完后，执行<code>sudo apt-get update</code></li>
+</ol>
+<p>注意：如果还是没解决的话可以看一下下面的参考博客</p>
+<p>参考博客：<a href="https://www.cnblogs.com/liangyue/p/8231556.html" target="_blank" rel="noopener">https://www.cnblogs.com/liangyue/p/8231556.html</a></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://whyyoustarted.github.io/2020/0216/problems-encountered-in-installing-opensshserver-ubuntu.html" title="Ubuntu安装openssh-server遇到的问题" target="_blank" rel="external">https://whyyoustarted.github.io/2020/0216/problems-encountered-in-installing-opensshserver-ubuntu.html</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/whyyoustarted" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/whyyoustarted" target="_blank"><span class="text-dark">初心</span><small class="ml-1x">Never forget why you started, and your mission can be accomplished.</small></a></h3>
+        <div>可怕的是，比你优秀的人比你还要努力。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
   
     
+  <section id="comments">
+  	
+
     
-      
-      
-      <section class="panel panel-default b-no">
-        <div class="panel-heading" role="tab">
-          <h3 class="panel-title">
-            <a data-toggle="collapse" href="#collapse2020" aria-expanded="true">
-              <i class="icon icon-calendar-plus text-active"></i><i class="icon icon-calendar-minus text"></i>
-              2020
-            </a>
-            <!-- <a href="/archives/2020" class="archive-year">2020</a> -->
-          </h3>
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2020/0216/solution-that-ubuntu-apt-update-has-been-waiting-for.html" title="Ubuntu apt update一直等待的解决办法"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2020/0216/ssh-under-ubuntu-connect-to-host-localhost-port-22-connection-refused.html" title="Ubuntu下 ssh : connect to host localhost port 22:Connection refused"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div id="collapse2020" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2020">
-        <div class="panel-body">
-          <div class="collection">
-    
-    
-<a href="/2020/0108/install-jdk-and-configure-environment-under-mac.html" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-01-08T11:53:54.000Z" itemprop="datePublished">2020-01-08</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> MAC下安装JDK以及配置环境
-</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-  
-  
-    </div></div></div></section>
-  
 
-	    </div>
-  	</article>
-  	 	
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -410,6 +576,36 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 <script src="/js/insight.js"></script>
 
 
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+<link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
+<script src="https://billts.site/js/gitment.js"></script>
+<!--<script src="//cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js"></script>-->
+<script>
+var gitment = new Gitment({
+  // id默认为当前页面url，如果url后带参数或锚点，gitment要重新初始化
+  // https://github.com/imsun/gitment/issues/55
+  // 解决方案：id:window.location.pathname,或者将id设置为当前页面标题
+  id: 'Ubuntu安装openssh-server遇到的问题', 
+  owner: 'WhyYouStarted', // 可以是你的GitHub用户名，也可以是github id
+  repo: 'comment',
+  oauth: {
+    client_id: '0b6919cdd12556e13dcb',
+    client_secret: 'a1a1d6b9306a128f088075f81b71972667fa0328',
+  }
+})
+gitment.render('comments')
+</script>
 
 
 

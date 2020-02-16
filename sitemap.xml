@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://whyyoustarted.github.io/2020/0216/solution-that-ubuntu-apt-update-has-been-waiting-for.html</loc>
+    
+    <lastmod>2020-02-16T07:39:27.723Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://whyyoustarted.github.io/2020/0216/problems-encountered-in-installing-opensshserver-ubuntu.html</loc>
+    
+    <lastmod>2020-02-16T07:32:12.161Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://whyyoustarted.github.io/2020/0216/ssh-under-ubuntu-connect-to-host-localhost-port-22-connection-refused.html</loc>
+    
+    <lastmod>2020-02-16T07:15:37.371Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://whyyoustarted.github.io/2019/1207/build-your-own-hexo-blog-under-mac-2.html</loc>
+    
+    <lastmod>2020-02-16T07:06:16.825Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://whyyoustarted.github.io/2019/1225/every-time-you-open-a-mac-must-execute-the-source-bashprofile-environment-variable-configuration-again-to-take-effect.html</loc>
+    
+    <lastmod>2020-02-16T07:06:16.771Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://whyyoustarted.github.io/2020/0108/install-jdk-and-configure-environment-under-mac.html</loc>
     
     <lastmod>2020-01-11T11:19:41.064Z</lastmod>
@@ -16,23 +51,9 @@
   </url>
   
   <url>
-    <loc>https://whyyoustarted.github.io/2019/1225/every-time-you-open-the-mac-must-execute-source-bashprofile-environment-variable-configuration-again-to-take-effect.html</loc>
-    
-    <lastmod>2019-12-25T03:21:05.748Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://whyyoustarted.github.io/2019/1216/javahome-is-not-defined-correctly-with-maven-on-mac.html</loc>
     
     <lastmod>2019-12-16T11:32:09.763Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://whyyoustarted.github.io/2019/1207/set-up-your-own-hexo-blog-under-mac-2.html</loc>
-    
-    <lastmod>2019-12-08T07:26:25.433Z</lastmod>
     
   </url>
   

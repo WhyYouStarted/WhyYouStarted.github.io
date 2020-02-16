@@ -17,19 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Mac 每次打开终端要再次执行source ~/.bash_profile 配置的环境变量才生效 | 初心</title>
-  <meta name="description" content="出现问题自己在 ~&#x2F;.bash_profile 中配置环境变量, 可是每次重启终端后配置的不生效.需要使用命令 source ~&#x2F;.bash_profile使.bash_profile生效 解决发现zsh加载的是~&#x2F;.zshrc文件，而 .zshrc 文件中并没有定义任务环境变量。 在~&#x2F;.zshrc文件最后，增加一行：source ~&#x2F;.bash_profile，即可">
-<meta name="keywords" content="环境变量">
+  <title>Ubuntu下 ssh : connect to host localhost port 22:Connection refused | 初心</title>
+  <meta name="description" content="Ubuntu下测试ssh时使用ssh localhost 命令，出现错误提示connect to host localhost port 22:Connection refused 造成这个错误的原因可能是ssh-server未安装或者未启动。ubuntu 16.04 默认安装openssh-client，但是没有安装server 所以使用ps -e | grep ssh来查看是否有sshd进程，">
+<meta name="keywords" content="Ubuntu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac 每次打开终端要再次执行source ~&#x2F;.bash_profile 配置的环境变量才生效">
-<meta property="og:url" content="https:&#x2F;&#x2F;whyyoustarted.github.io&#x2F;2019&#x2F;1225&#x2F;every-time-you-open-the-mac-must-execute-source-bashprofile-environment-variable-configuration-again-to-take-effect.html">
+<meta property="og:title" content="Ubuntu下 ssh : connect to host localhost port 22:Connection refused">
+<meta property="og:url" content="https:&#x2F;&#x2F;whyyoustarted.github.io&#x2F;2020&#x2F;0216&#x2F;ssh-under-ubuntu-connect-to-host-localhost-port-22-connection-refused.html">
 <meta property="og:site_name" content="初心">
-<meta property="og:description" content="出现问题自己在 ~&#x2F;.bash_profile 中配置环境变量, 可是每次重启终端后配置的不生效.需要使用命令 source ~&#x2F;.bash_profile使.bash_profile生效 解决发现zsh加载的是~&#x2F;.zshrc文件，而 .zshrc 文件中并没有定义任务环境变量。 在~&#x2F;.zshrc文件最后，增加一行：source ~&#x2F;.bash_profile，即可">
+<meta property="og:description" content="Ubuntu下测试ssh时使用ssh localhost 命令，出现错误提示connect to host localhost port 22:Connection refused 造成这个错误的原因可能是ssh-server未安装或者未启动。ubuntu 16.04 默认安装openssh-client，但是没有安装server 所以使用ps -e | grep ssh来查看是否有sshd进程，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-25T03:21:05.748Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;WhyYouStarted&#x2F;PhotoGallery@master&#x2F;images&#x2F;ubuntu&#x2F;%E6%88%AA%E5%B1%8F2020-02-16%E4%B8%8B%E5%8D%882.57.30.png">
+<meta property="og:updated_time" content="2020-02-16T07:15:37.371Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;WhyYouStarted&#x2F;PhotoGallery@master&#x2F;images&#x2F;ubuntu&#x2F;%E6%88%AA%E5%B1%8F2020-02-16%E4%B8%8B%E5%8D%882.57.30.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://whyyoustarted.github.io/2019/1225/every-time-you-open-the-mac-must-execute-source-bashprofile-environment-variable-configuration-again-to-take-effect.html">
+  <link rel="canonical" href="https://whyyoustarted.github.io/2020/0216/ssh-under-ubuntu-connect-to-host-localhost-port-22-connection-refused.html">
   
     <link rel="alternate" href="/atom.xml" title="初心" type="application/atom+xml">
   
@@ -199,7 +201,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Maven/">Maven</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/XML/">XML</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%B3%BB%E7%BB%9F/">系统</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Maven/">Maven</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ubuntu/">Ubuntu</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/XML/">XML</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%B3%BB%E7%BB%9F/">系统</a><span class="category-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -209,7 +211,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JDK/" rel="tag">JDK</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/" rel="tag">Maven</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" rel="tag">环境变量</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JDK/" rel="tag">JDK</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/" rel="tag">Maven</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" rel="tag">环境变量</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -219,7 +221,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/JDK/" style="font-size: 13px;">JDK</a> <a href="/tags/Maven/" style="font-size: 14px;">Maven</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 14px;">教程</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" style="font-size: 13px;">环境变量</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 13px;">笔记</a>
+      <a href="/tags/JDK/" style="font-size: 13px;">JDK</a> <a href="/tags/Maven/" style="font-size: 13.5px;">Maven</a> <a href="/tags/Ubuntu/" style="font-size: 14px;">Ubuntu</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 13.5px;">教程</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" style="font-size: 13px;">环境变量</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 13px;">笔记</a>
     </div>
   </div>
 
@@ -228,7 +230,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -240,6 +242,51 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Ubuntu/">Ubuntu</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/0216/solution-that-ubuntu-apt-update-has-been-waiting-for.html" class="title">Ubuntu apt update一直等待的解决办法</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-02-16T07:33:33.000Z" itemprop="datePublished">2020-02-16</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Ubuntu/">Ubuntu</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/0216/problems-encountered-in-installing-opensshserver-ubuntu.html" class="title">Ubuntu安装openssh-server遇到的问题</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-02-16T07:16:14.000Z" itemprop="datePublished">2020-02-16</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Ubuntu/">Ubuntu</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/0216/ssh-under-ubuntu-connect-to-host-localhost-port-22-connection-refused.html" class="title">Ubuntu下 ssh : connect to host localhost port 22:Connection refused</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-02-16T06:50:20.000Z" itemprop="datePublished">2020-02-16</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-inner">
@@ -262,55 +309,10 @@
                 <a class="category-link" href="/categories/%E7%B3%BB%E7%BB%9F/">系统</a>
               </p>
               <p class="item-title">
-                <a href="/2019/1225/every-time-you-open-the-mac-must-execute-source-bashprofile-environment-variable-configuration-again-to-take-effect.html" class="title">Mac 每次打开终端要再次执行source ~/.bash_profile 配置的环境变量才生效</a>
+                <a href="/2019/1225/every-time-you-open-a-mac-must-execute-the-source-bashprofile-environment-variable-configuration-again-to-take-effect.html" class="title">Mac 每次打开终端要再次执行source ~/.bash_profile 配置的环境变量才生效</a>
               </p>
               <p class="item-date">
                 <time datetime="2019-12-25T03:06:50.000Z" itemprop="datePublished">2019-12-25</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/Maven/">Maven</a>
-              </p>
-              <p class="item-title">
-                <a href="/2019/1216/javahome-is-not-defined-correctly-with-maven-on-mac.html" class="title">Mac下Maven出现JAVA_HOME is not defined correctly问题</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2019-12-16T03:48:21.000Z" itemprop="datePublished">2019-12-16</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/Maven/">Maven</a>
-              </p>
-              <p class="item-title">
-                <a href="/2019/1216/install-maven-on-mac.html" class="title">Mac下安装Maven</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2019-12-16T02:07:39.000Z" itemprop="datePublished">2019-12-16</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/hexo/">hexo</a>
-              </p>
-              <p class="item-title">
-                <a href="/2019/1207/set-up-your-own-hexo-blog-under-mac-2.html" class="title">在MAC下搭建专属你的hexo博客(二)</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2019-12-07T02:18:21.000Z" itemprop="datePublished">2019-12-07</time>
               </p>
             </div>
           </li>
@@ -329,14 +331,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-Mac-每次打开终端要再次执行source-bash-profile-配置的环境变量才生效" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-Ubuntu下-ssh-connect-to-host-localhost-port-22-Connection-refused" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Mac 每次打开终端要再次执行source ~/.bash_profile 配置的环境变量才生效
+      Ubuntu下 ssh : connect to host localhost port 22:Connection refused
     </h1>
   
 
@@ -344,20 +346,20 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2019/1225/every-time-you-open-the-mac-must-execute-source-bashprofile-environment-variable-configuration-again-to-take-effect.html" class="article-date">
-	  <time datetime="2019-12-25T03:06:50.000Z" itemprop="datePublished">2019-12-25</time>
+	<a href="/2020/0216/ssh-under-ubuntu-connect-to-host-localhost-port-22-connection-refused.html" class="article-date">
+	  <time datetime="2020-02-16T06:50:20.000Z" itemprop="datePublished">2020-02-16</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E7%B3%BB%E7%BB%9F/">系统</a>
+    <a class="article-category-link" href="/categories/Ubuntu/">Ubuntu</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" rel="tag">环境变量</a>
+	<a class="article-tag-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a>
   </span>
 
 
@@ -370,10 +372,10 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/1225/every-time-you-open-the-mac-must-execute-source-bashprofile-environment-variable-configuration-again-to-take-effect.html#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/0216/ssh-under-ubuntu-connect-to-host-localhost-port-22-connection-refused.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 84(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 269(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -383,9 +385,16 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="出现问题"><a href="#出现问题" class="headerlink" title="出现问题"></a>出现问题</h2><p>自己在 <code>~/.bash_profile</code> 中配置环境变量, 可是每次重启终端后配置的不生效.需要使用命令 <code>source ~/.bash_profile</code>使<code>.bash_profile</code>生效</p>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>发现zsh加载的是<code>~/.zshrc</code>文件，而 <code>.zshrc</code> 文件中并没有定义任务环境变量。</p>
-<p>在<code>~/.zshrc</code>文件最后，增加一行：<code>source ~/.bash_profile</code>，即可</p>
+        <p>Ubuntu下测试ssh时使用ssh localhost 命令，出现错误提示connect to host localhost port 22:Connection refused</p>
+<p>造成这个错误的原因可能是ssh-server未安装或者未启动。ubuntu 16.04 默认安装openssh-client，但是没有安装server</p>
+<p>所以使用<code>ps -e | grep ssh</code>来查看是否有sshd进程，如果没有出现类似下图的信息，那么说明server没启动，通过命令 <code>/etc/init.d/ssh -start</code> 来启动server进程，如果提示ssh不存在 那么就是没安装server</p>
+<p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/ubuntu/%E6%88%AA%E5%B1%8F2020-02-16%E4%B8%8B%E5%8D%882.57.30.png" alt=""></p>
+<p>可以使用命令<code>sudo apt-get install openssh-server</code>进行安装，如果出现如下错误可以参考···········</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">完成正在分析软件包的依赖关系树正在读取状态信息...</span><br><span class="line">完成现在没有可用的软件包 openssh-server，</span><br><span class="line">但是他被其他的软件包引用了这可能意味着这个缺失的软件包可能已被废弃，或者只能在其他发布源中找到</span><br><span class="line">E:软件包 openssh-server 还没有可供安装的候选者</span><br></pre></td></tr></table></figure>
+
+
+
+<p>本文参考：<a href="http://asyty.iteye.com/blog/1440141" target="_blank" rel="noopener">http://asyty.iteye.com/blog/1440141</a></p>
 
       
     </div>
@@ -395,7 +404,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://whyyoustarted.github.io/2019/1225/every-time-you-open-the-mac-must-execute-source-bashprofile-environment-variable-configuration-again-to-take-effect.html" title="Mac 每次打开终端要再次执行source ~/.bash_profile 配置的环境变量才生效" target="_blank" rel="external">https://whyyoustarted.github.io/2019/1225/every-time-you-open-the-mac-must-execute-source-bashprofile-environment-variable-configuration-again-to-take-effect.html</a>
+      <a href="https://whyyoustarted.github.io/2020/0216/ssh-under-ubuntu-connect-to-host-localhost-port-22-connection-refused.html" title="Ubuntu下 ssh : connect to host localhost port 22:Connection refused" target="_blank" rel="external">https://whyyoustarted.github.io/2020/0216/ssh-under-ubuntu-connect-to-host-localhost-port-22-connection-refused.html</a>
     </li>
     
     <li class="post-copyright-license">
@@ -442,12 +451,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2020/0108/install-jdk-and-configure-environment-under-mac.html" title="MAC下安装JDK以及配置环境"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2020/0216/problems-encountered-in-installing-opensshserver-ubuntu.html" title="Ubuntu安装openssh-server遇到的问题"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2019/1216/javahome-is-not-defined-correctly-with-maven-on-mac.html" title="Mac下Maven出现JAVA_HOME is not defined correctly问题"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2020/0108/install-jdk-and-configure-environment-under-mac.html" title="MAC下安装JDK以及配置环境"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
@@ -577,7 +586,7 @@ var gitment = new Gitment({
   // id默认为当前页面url，如果url后带参数或锚点，gitment要重新初始化
   // https://github.com/imsun/gitment/issues/55
   // 解决方案：id:window.location.pathname,或者将id设置为当前页面标题
-  id: 'Mac 每次打开终端要再次执行source ~/.bash_profile 配置的环境变量才生效', 
+  id: 'Ubuntu下 ssh : connect to host localhost port 22:Connection refused', 
   owner: 'WhyYouStarted', // 可以是你的GitHub用户名，也可以是github id
   repo: 'comment',
   oauth: {
