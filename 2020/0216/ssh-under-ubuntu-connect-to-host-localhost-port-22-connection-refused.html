@@ -27,7 +27,7 @@
 <meta property="og:description" content="Ubuntu下测试ssh时使用ssh localhost 命令，出现错误提示connect to host localhost port 22:Connection refused 造成这个错误的原因可能是ssh-server未安装或者未启动。ubuntu 16.04 默认安装openssh-client，但是没有安装server 所以使用ps -e | grep ssh来查看是否有sshd进程，">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;WhyYouStarted&#x2F;PhotoGallery@master&#x2F;images&#x2F;ubuntu&#x2F;%E6%88%AA%E5%B1%8F2020-02-16%E4%B8%8B%E5%8D%882.57.30.png">
-<meta property="og:updated_time" content="2020-02-16T07:15:37.371Z">
+<meta property="og:updated_time" content="2020-02-16T07:44:53.532Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;WhyYouStarted&#x2F;PhotoGallery@master&#x2F;images&#x2F;ubuntu&#x2F;%E6%88%AA%E5%B1%8F2020-02-16%E4%B8%8B%E5%8D%882.57.30.png">
   <!-- Canonical links -->
@@ -375,7 +375,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/0216/ssh-under-ubuntu-connect-to-host-localhost-port-22-connection-refused.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 269(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 278(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -389,7 +389,7 @@
 <p>造成这个错误的原因可能是ssh-server未安装或者未启动。ubuntu 16.04 默认安装openssh-client，但是没有安装server</p>
 <p>所以使用<code>ps -e | grep ssh</code>来查看是否有sshd进程，如果没有出现类似下图的信息，那么说明server没启动，通过命令 <code>/etc/init.d/ssh -start</code> 来启动server进程，如果提示ssh不存在 那么就是没安装server</p>
 <p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/ubuntu/%E6%88%AA%E5%B1%8F2020-02-16%E4%B8%8B%E5%8D%882.57.30.png" alt=""></p>
-<p>可以使用命令<code>sudo apt-get install openssh-server</code>进行安装，如果出现如下错误可以参考···········</p>
+<p>可以使用命令<code>sudo apt-get install openssh-server</code>进行安装，如果出现如下错误可以参考<a href="https://whyyoustarted.github.io/2020/0216/problems-encountered-in-installing-opensshserver-ubuntu.html">Ubuntu安装openssh-server遇到的问题</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">完成正在分析软件包的依赖关系树正在读取状态信息...</span><br><span class="line">完成现在没有可用的软件包 openssh-server，</span><br><span class="line">但是他被其他的软件包引用了这可能意味着这个缺失的软件包可能已被废弃，或者只能在其他发布源中找到</span><br><span class="line">E:软件包 openssh-server 还没有可供安装的候选者</span><br></pre></td></tr></table></figure>
 
 
