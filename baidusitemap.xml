@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://whyyoustarted.github.io/2020/0218/installation-and-configuration-of-vim-under-ubuntu.html</loc>
+    <lastmod>2020-02-18</lastmod>
+  </url>  <url>
+    <loc>https://whyyoustarted.github.io/2020/0218/ubuntu-1604-sudo-cannot-resolve-host-solution.html</loc>
+    <lastmod>2020-02-18</lastmod>
+  </url>  <url>
     <loc>https://whyyoustarted.github.io/2020/0216/problems-encountered-in-installing-opensshserver-ubuntu.html</loc>
     <lastmod>2020-02-16</lastmod>
   </url>  <url>

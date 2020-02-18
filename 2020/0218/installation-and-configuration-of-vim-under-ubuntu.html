@@ -17,15 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>分类: Ubuntu | 初心</title>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="初心">
-<meta property="og:url" content="https:&#x2F;&#x2F;whyyoustarted.github.io&#x2F;categories&#x2F;Ubuntu&#x2F;index.html">
+  <title>Ubuntu下vim的安装以及配置 | 初心</title>
+  <meta name="description" content="vim工具可以方便的从liunx终端打开编辑修改文件，是一款在Ubuntu系统下必备的工具 首先是安装： 在终端中输入sudo apt-get install vim-gtk，然后根据提示安装即可 安装完成后可以使用命令vim --version来测试一下，如果出现类似下图的信息，就是安装成功了  安装成功我们就需要配置一下vim，使其美观 如果只对各个用户在自己的当前目录下的.vimrc修改的话">
+<meta name="keywords" content="Ubuntu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu下vim的安装以及配置">
+<meta property="og:url" content="https:&#x2F;&#x2F;whyyoustarted.github.io&#x2F;2020&#x2F;0218&#x2F;installation-and-configuration-of-vim-under-ubuntu.html">
 <meta property="og:site_name" content="初心">
+<meta property="og:description" content="vim工具可以方便的从liunx终端打开编辑修改文件，是一款在Ubuntu系统下必备的工具 首先是安装： 在终端中输入sudo apt-get install vim-gtk，然后根据提示安装即可 安装完成后可以使用命令vim --version来测试一下，如果出现类似下图的信息，就是安装成功了  安装成功我们就需要配置一下vim，使其美观 如果只对各个用户在自己的当前目录下的.vimrc修改的话">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;WhyYouStarted&#x2F;PhotoGallery@master&#x2F;images&#x2F;ubuntu&#x2F;%E6%88%AA%E5%B1%8F2020-02-18%E4%B8%8B%E5%8D%882.58.01.png">
+<meta property="og:updated_time" content="2020-02-18T07:11:47.442Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;WhyYouStarted&#x2F;PhotoGallery@master&#x2F;images&#x2F;ubuntu&#x2F;%E6%88%AA%E5%B1%8F2020-02-18%E4%B8%8B%E5%8D%882.58.01.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://whyyoustarted.github.io/categories/Ubuntu/index.html">
+  <link rel="canonical" href="https://whyyoustarted.github.io/2020/0218/installation-and-configuration-of-vim-under-ubuntu.html">
   
     <link rel="alternate" href="/atom.xml" title="初心" type="application/atom+xml">
   
@@ -34,6 +40,8 @@
   
   <link rel="stylesheet" href="/css/style.css">
   
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css">
   
   
   
@@ -320,91 +328,198 @@
 
   
   <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
-  <main class="main" role="main">
-  <article class="content article article-categories article-type-list" itemscope="">
-    <header class="article-header">
-      <h1 itemprop="name" class="hidden-xs">分类: Ubuntu</h1>
-      <p class="hidden-xs">共 5 篇文章</p>
-      <nav role="navigation" id="nav-main" class="okayNav">
-        <ul>
-          <li><a href="/categories">All</a></li>
-          
-          <li><a href="/categories/系统/">系统</a></li>
-          
-          <li><a href="/categories/Maven/">Maven</a></li>
-          
-          <li><a href="/categories/Ubuntu/">Ubuntu</a></li>
-          
-          <li><a href="/categories/XML/">XML</a></li>
-          
-          <li><a href="/categories/hexo/">hexo</a></li>
-          
-        </ul>
-      </nav>
-    </header>
-    <!-- /header -->
-    <div class="article-body">
-      <div class="panel panel-default b-no">
-    <div class="panel-heading" role="tab">
-        <h4 class="panel-title">
-            <a data-toggle="collapse" href="#collapseUbuntu" aria-expanded="true">
-              <i class="icon icon-folder text-active"></i><i class="icon icon-folder-open text"></i>
-              Ubuntu
-            </a>
-            <small class="text-muted">(Total 5 articles)</small>
-        </h4>
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Ubuntu下vim的安装以及配置" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Ubuntu下vim的安装以及配置
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/0218/installation-and-configuration-of-vim-under-ubuntu.html" class="article-date">
+	  <time datetime="2020-02-18T06:37:54.000Z" itemprop="datePublished">2020-02-18</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Ubuntu/">Ubuntu</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/0218/installation-and-configuration-of-vim-under-ubuntu.html#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 592(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
+	
+
+      </div>
     </div>
-    <div id="collapseUbuntu" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingUbuntu">
-        <div class="panel-body">
-            <div class="collection">
-              
-                
-<a href="/2020/0218/installation-and-configuration-of-vim-under-ubuntu.html" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-02-18T06:37:54.000Z" itemprop="datePublished">2020-02-18</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Ubuntu下vim的安装以及配置
-</a>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>vim工具可以方便的从liunx终端打开编辑修改文件，是一款在Ubuntu系统下必备的工具</p>
+<p>首先是安装：</p>
+<p>在终端中输入<code>sudo apt-get install vim-gtk</code>，然后根据提示安装即可</p>
+<p>安装完成后可以使用命令<code>vim --version</code>来测试一下，如果出现类似下图的信息，就是安装成功了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/ubuntu/%E6%88%AA%E5%B1%8F2020-02-18%E4%B8%8B%E5%8D%882.58.01.png" alt=""></p>
+<p>安装成功我们就需要配置一下vim，使其美观</p>
+<p>如果只对各个用户在自己的当前目录下的.vimrc修改的话，修改内容只对本用户有效,要想全部有效，可以修改/etc/vim/vimrc。</p>
+<p>在终端下使用vim进行编辑时，默认情况下，编辑的界面上是没有显示行号、语法高亮度显示、智能缩进等功能的。为了更好的在vim下进行工作，需要手动设置一个配置文件：<code>.vimrc</code>。</p>
+<p>启动vim时，当前用户根目录下的.vimrc文件会被自动读取，该文件可以包含一些设置甚至脚本，所以，一般情况下把.vimrc文件创建在当前用户的根目录下比较方便。</p>
+<p>只对本用户有效：<code>vim ~/.vimrc</code></p>
+<p>对所有用户有效：<code>sudo vim /etc/vim/vimrc</code> </p>
+<p>这是我使用的，可以根据需要将其复制到vimrc中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&quot; 设置外观 -------------------------------------</span><br><span class="line">set number                      &quot;显示行号</span><br><span class="line">set showtabline=0               &quot;隐藏顶部标签栏&quot;</span><br><span class="line">set guioptions-=r               &quot;隐藏右侧滚动条&quot;</span><br><span class="line">set guioptions-=L               &quot;隐藏左侧滚动条&quot;</span><br><span class="line">set guioptions-=b               &quot;隐藏底部滚动条&quot;</span><br><span class="line">set cursorline                  &quot;突出显示当前行&quot;</span><br><span class="line">&quot;set cursorcolumn                &quot;突出显示当前列&quot;</span><br><span class="line">set langmenu=zh_CN.UTF-8        &quot;显示中文菜单</span><br><span class="line">&quot; 变成辅助 -------------------------------------</span><br><span class="line">syntax on                       &quot;开启语法高亮</span><br><span class="line">set nowrap                      &quot;设置代码不折行&quot;</span><br><span class="line">set fileformat=unix             &quot;设置以unix的格式保存文件&quot;</span><br><span class="line">set cindent                     &quot;设置C样式的缩进格式&quot;</span><br><span class="line">set tabstop=4                   &quot;一个 tab 显示出来是多少个空格，默认 8</span><br><span class="line">set shiftwidth=4                &quot;每一级缩进是多少个空格</span><br><span class="line">set backspace+=indent,eol,start &quot;set backspace&amp;可以对其重置</span><br><span class="line">set showmatch                   &quot;显示匹配的括号&quot;</span><br><span class="line">set scrolloff=5                 &quot;距离顶部和底部5行&quot;</span><br><span class="line">set laststatus=2                &quot;命令行为两行&quot;</span><br><span class="line">&quot; 其他杂项 -------------------------------------</span><br><span class="line">set mouse=a                     &quot;启用鼠标&quot;</span><br><span class="line">set selection=exclusive</span><br><span class="line">set selectmode=mouse,key</span><br><span class="line">set matchtime=5</span><br></pre></td></tr></table></figure>
 
 
-              
-                
-<a href="/2020/0218/ubuntu-1604-sudo-cannot-resolve-host-solution.html" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-02-18T06:34:13.000Z" itemprop="datePublished">2020-02-18</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Ubuntu16.04 sudo:无法解析主机 解决方案
-</a>
-
-
-              
-                
-<a href="/2020/0216/solution-that-ubuntu-apt-update-has-been-waiting-for.html" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-02-16T07:33:33.000Z" itemprop="datePublished">2020-02-16</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Ubuntu apt update一直等待的解决办法
-</a>
-
-
-              
-                
-<a href="/2020/0216/problems-encountered-in-installing-opensshserver-ubuntu.html" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-02-16T07:16:14.000Z" itemprop="datePublished">2020-02-16</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Ubuntu安装openssh-server遇到的问题
-</a>
-
-
-              
-                
-<a href="/2020/0216/ssh-under-ubuntu-connect-to-host-localhost-port-22-connection-refused.html" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-02-16T06:50:20.000Z" itemprop="datePublished">2020-02-16</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Ubuntu下 ssh : connect to host localhost port 22:Connection refused
-</a>
-
-
-              
-            </div>
-        </div>
+      
     </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://whyyoustarted.github.io/2020/0218/installation-and-configuration-of-vim-under-ubuntu.html" title="Ubuntu下vim的安装以及配置" target="_blank" rel="external">https://whyyoustarted.github.io/2020/0218/installation-and-configuration-of-vim-under-ubuntu.html</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/whyyoustarted" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/whyyoustarted" target="_blank"><span class="text-dark">初心</span><small class="ml-1x">Never forget why you started, and your mission can be accomplished.</small></a></h3>
+        <div>可怕的是，比你优秀的人比你还要努力。</div>
+      </div>
+    </figure>
+  </div>
 </div>
+
+
     </div>
   </article>
-   
+  
+    
+  <section id="comments">
+  	
+
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2020/0218/ubuntu-1604-sudo-cannot-resolve-host-solution.html" title="Ubuntu16.04 sudo:无法解析主机 解决方案"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -451,6 +566,36 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 <script src="/js/insight.js"></script>
 
 
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+<link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
+<script src="https://billts.site/js/gitment.js"></script>
+<!--<script src="//cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js"></script>-->
+<script>
+var gitment = new Gitment({
+  // id默认为当前页面url，如果url后带参数或锚点，gitment要重新初始化
+  // https://github.com/imsun/gitment/issues/55
+  // 解决方案：id:window.location.pathname,或者将id设置为当前页面标题
+  id: 'Ubuntu下vim的安装以及配置', 
+  owner: 'WhyYouStarted', // 可以是你的GitHub用户名，也可以是github id
+  repo: 'comment',
+  oauth: {
+    client_id: '0b6919cdd12556e13dcb',
+    client_secret: 'a1a1d6b9306a128f088075f81b71972667fa0328',
+  }
+})
+gitment.render('comments')
+</script>
 
 
 

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://whyyoustarted.github.io/"/>
-  <updated>2020-02-16T07:39:54.345Z</updated>
+  <updated>2020-02-18T07:11:47.442Z</updated>
   <id>https://whyyoustarted.github.io/</id>
   
   <author>
@@ -15,6 +15,61 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ubuntu下vim的安装以及配置</title>
+    <link href="https://whyyoustarted.github.io/2020/0218/installation-and-configuration-of-vim-under-ubuntu.html"/>
+    <id>https://whyyoustarted.github.io/2020/0218/installation-and-configuration-of-vim-under-ubuntu.html</id>
+    <published>2020-02-18T06:37:54.000Z</published>
+    <updated>2020-02-18T07:11:47.442Z</updated>
+    
+    <content type="html"><![CDATA[<p>vim工具可以方便的从liunx终端打开编辑修改文件，是一款在Ubuntu系统下必备的工具</p><p>首先是安装：</p><p>在终端中输入<code>sudo apt-get install vim-gtk</code>，然后根据提示安装即可</p><p>安装完成后可以使用命令<code>vim --version</code>来测试一下，如果出现类似下图的信息，就是安装成功了</p><p><img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/ubuntu/%E6%88%AA%E5%B1%8F2020-02-18%E4%B8%8B%E5%8D%882.58.01.png" alt=""></p><p>安装成功我们就需要配置一下vim，使其美观</p><p>如果只对各个用户在自己的当前目录下的.vimrc修改的话，修改内容只对本用户有效,要想全部有效，可以修改/etc/vim/vimrc。</p><p>在终端下使用vim进行编辑时，默认情况下，编辑的界面上是没有显示行号、语法高亮度显示、智能缩进等功能的。为了更好的在vim下进行工作，需要手动设置一个配置文件：<code>.vimrc</code>。</p><p>启动vim时，当前用户根目录下的.vimrc文件会被自动读取，该文件可以包含一些设置甚至脚本，所以，一般情况下把.vimrc文件创建在当前用户的根目录下比较方便。</p><p>只对本用户有效：<code>vim ~/.vimrc</code></p><p>对所有用户有效：<code>sudo vim /etc/vim/vimrc</code> </p><p>这是我使用的，可以根据需要将其复制到vimrc中</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&quot; 设置外观 -------------------------------------</span><br><span class="line">set number                      &quot;显示行号</span><br><span class="line">set showtabline=0               &quot;隐藏顶部标签栏&quot;</span><br><span class="line">set guioptions-=r               &quot;隐藏右侧滚动条&quot;</span><br><span class="line">set guioptions-=L               &quot;隐藏左侧滚动条&quot;</span><br><span class="line">set guioptions-=b               &quot;隐藏底部滚动条&quot;</span><br><span class="line">set cursorline                  &quot;突出显示当前行&quot;</span><br><span class="line">&quot;set cursorcolumn                &quot;突出显示当前列&quot;</span><br><span class="line">set langmenu=zh_CN.UTF-8        &quot;显示中文菜单</span><br><span class="line">&quot; 变成辅助 -------------------------------------</span><br><span class="line">syntax on                       &quot;开启语法高亮</span><br><span class="line">set nowrap                      &quot;设置代码不折行&quot;</span><br><span class="line">set fileformat=unix             &quot;设置以unix的格式保存文件&quot;</span><br><span class="line">set cindent                     &quot;设置C样式的缩进格式&quot;</span><br><span class="line">set tabstop=4                   &quot;一个 tab 显示出来是多少个空格，默认 8</span><br><span class="line">set shiftwidth=4                &quot;每一级缩进是多少个空格</span><br><span class="line">set backspace+=indent,eol,start &quot;set backspace&amp;可以对其重置</span><br><span class="line">set showmatch                   &quot;显示匹配的括号&quot;</span><br><span class="line">set scrolloff=5                 &quot;距离顶部和底部5行&quot;</span><br><span class="line">set laststatus=2                &quot;命令行为两行&quot;</span><br><span class="line">&quot; 其他杂项 -------------------------------------</span><br><span class="line">set mouse=a                     &quot;启用鼠标&quot;</span><br><span class="line">set selection=exclusive</span><br><span class="line">set selectmode=mouse,key</span><br><span class="line">set matchtime=5</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;vim工具可以方便的从liunx终端打开编辑修改文件，是一款在Ubuntu系统下必备的工具&lt;/p&gt;
+&lt;p&gt;首先是安装：&lt;/p&gt;
+&lt;p&gt;在终端中输入&lt;code&gt;sudo apt-get install vim-gtk&lt;/code&gt;，然后根据提示安装即可&lt;/p&gt;
+&lt;p&gt;安装完成
+      
+    
+    </summary>
+    
+    
+      <category term="Ubuntu" scheme="https://whyyoustarted.github.io/categories/Ubuntu/"/>
+    
+    
+      <category term="Ubuntu" scheme="https://whyyoustarted.github.io/tags/Ubuntu/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu16.04 sudo:无法解析主机 解决方案</title>
+    <link href="https://whyyoustarted.github.io/2020/0218/ubuntu-1604-sudo-cannot-resolve-host-solution.html"/>
+    <id>https://whyyoustarted.github.io/2020/0218/ubuntu-1604-sudo-cannot-resolve-host-solution.html</id>
+    <published>2020-02-18T06:34:13.000Z</published>
+    <updated>2020-02-18T06:37:22.591Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文转载自：<a href="https://blog.csdn.net/lanhaixuanvv/article/details/78387580" target="_blank" rel="noopener">https://blog.csdn.net/lanhaixuanvv/article/details/78387580</a></p><p>在使用linux的sudo命令时候可能有些人会遇到这样的问题：“sudo:无法解析主机:xxxxx(您的主机名)，我也遇到了这种问题，我的解决方案：</p><p>出现这种问题是hosts文件没有配置好所导致的，linux无法解析到您的主机地址，解决方案如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/hosts</span><br></pre></td></tr></table></figure><p>打开文件以后，将其中的</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.1.1  xxxxx</span><br></pre></td></tr></table></figure><p>后面的xxxx替换为你的电脑主机名字，也就是错误中最后那串字符。如果没有的话就将其添加进去。</p><p>可以使用命令在终端查看主机名：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hostname</span><br></pre></td></tr></table></figure><p>将查看的主机名代替xxxx即可</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;本文转载自：&lt;a href=&quot;https://blog.csdn.net/lanhaixuanvv/article/details/78387580&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/lanhaixu
+      
+    
+    </summary>
+    
+    
+      <category term="Ubuntu" scheme="https://whyyoustarted.github.io/categories/Ubuntu/"/>
+    
+    
+      <category term="Ubuntu" scheme="https://whyyoustarted.github.io/tags/Ubuntu/"/>
+    
+  </entry>
   
   <entry>
     <title>Ubuntu apt update一直等待的解决办法</title>
