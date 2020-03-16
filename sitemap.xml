@@ -2,16 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://whyyoustarted.github.io/2020/0307/install-oracle-11g-under-ubuntu-1604.html</loc>
+    
+    <lastmod>2020-03-08T08:30:41.041Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://whyyoustarted.github.io/2020/0307/solution-to-sysctl-p-error.html</loc>
+    
+    <lastmod>2020-03-08T07:04:07.284Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://whyyoustarted.github.io/2020/0221/build-a-fully-distributed-hadoop-cluster-under-ubuntu.html</loc>
+    
+    <lastmod>2020-03-08T07:04:07.178Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://whyyoustarted.github.io/2020/0218/installation-and-configuration-of-vim-under-ubuntu.html</loc>
     
-    <lastmod>2020-02-18T07:11:47.442Z</lastmod>
+    <lastmod>2020-02-18T07:12:22.043Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://whyyoustarted.github.io/2020/0218/ubuntu-1604-sudo-cannot-resolve-host-solution.html</loc>
     
-    <lastmod>2020-02-18T06:37:22.591Z</lastmod>
+    <lastmod>2020-02-18T07:12:21.836Z</lastmod>
     
   </url>
   

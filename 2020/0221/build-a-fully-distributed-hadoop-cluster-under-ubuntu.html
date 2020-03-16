@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Ubuntu下搭建完全分布式Hadoop集群 | 初心</title>
+  <meta name="description" content="Hadoop的运行环境介绍  hadoop主要有三种运行模式：单机模式、伪分布模式、完全分布模式。  其中在单机模式下所有3个XML文件均为空，当配置文件为空时，Hadoop会完全运行在本地，因为不需要与其他节点交互，单机模式就不使用HDFS，也不加载任何Hadoop的守护进程。该模式主要用于开发调试MapReduce程序的应用逻辑。  在伪分布式模式下是指在“单节点集群”上运行Hadoop，其">
+<meta name="keywords" content="Hadoop">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu下搭建完全分布式Hadoop集群">
+<meta property="og:url" content="https:&#x2F;&#x2F;whyyoustarted.github.io&#x2F;2020&#x2F;0221&#x2F;build-a-fully-distributed-hadoop-cluster-under-ubuntu.html">
+<meta property="og:site_name" content="初心">
+<meta property="og:description" content="Hadoop的运行环境介绍  hadoop主要有三种运行模式：单机模式、伪分布模式、完全分布模式。  其中在单机模式下所有3个XML文件均为空，当配置文件为空时，Hadoop会完全运行在本地，因为不需要与其他节点交互，单机模式就不使用HDFS，也不加载任何Hadoop的守护进程。该模式主要用于开发调试MapReduce程序的应用逻辑。  在伪分布式模式下是指在“单节点集群”上运行Hadoop，其">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;WhyYouStarted&#x2F;PhotoGallery@master&#x2F;images&#x2F;Hadoop&#x2F;%E6%88%AA%E5%B1%8F2020-02-21%E4%B8%8A%E5%8D%8810.49.33.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;WhyYouStarted&#x2F;PhotoGallery@master&#x2F;images&#x2F;Hadoop&#x2F;%E6%88%AA%E5%B1%8F2020-02-21%E4%B8%8A%E5%8D%8810.49.40.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;WhyYouStarted&#x2F;PhotoGallery@master&#x2F;images&#x2F;Hadoop&#x2F;%E6%88%AA%E5%B1%8F2020-02-21%E4%B8%8A%E5%8D%8810.49.49.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;WhyYouStarted&#x2F;PhotoGallery@master&#x2F;images&#x2F;Hadoop&#x2F;%E6%88%AA%E5%B1%8F2020-02-21%E4%B8%8A%E5%8D%8811.01.17.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;WhyYouStarted&#x2F;PhotoGallery@master&#x2F;images&#x2F;Hadoop&#x2F;%E6%88%AA%E5%B1%8F2020-02-21%E4%B8%8A%E5%8D%8811.00.52.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;WhyYouStarted&#x2F;PhotoGallery@master&#x2F;images&#x2F;Hadoop&#x2F;%E6%88%AA%E5%B1%8F2020-02-22%E4%B8%8A%E5%8D%889.18.42.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;WhyYouStarted&#x2F;PhotoGallery@master&#x2F;images&#x2F;Hadoop&#x2F;%E6%88%AA%E5%B1%8F2020-02-22%E4%B8%8A%E5%8D%889.22.19.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;WhyYouStarted&#x2F;PhotoGallery@master&#x2F;images&#x2F;Hadoop&#x2F;%E6%88%AA%E5%B1%8F2020-02-22%E4%B8%8A%E5%8D%889.41.35.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;WhyYouStarted&#x2F;PhotoGallery@master&#x2F;images&#x2F;Hadoop&#x2F;%E6%88%AA%E5%B1%8F2020-02-25%E4%B8%8B%E5%8D%887.33.27.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;WhyYouStarted&#x2F;PhotoGallery@master&#x2F;images&#x2F;Hadoop&#x2F;%E6%88%AA%E5%B1%8F2020-02-25%E4%B8%8B%E5%8D%887.34.08.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;WhyYouStarted&#x2F;PhotoGallery@master&#x2F;images&#x2F;Hadoop&#x2F;%E6%88%AA%E5%B1%8F2020-02-25%E4%B8%8B%E5%8D%887.32.34.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;WhyYouStarted&#x2F;PhotoGallery@master&#x2F;images&#x2F;Hadoop&#x2F;%E6%88%AA%E5%B1%8F2020-02-25%E4%B8%8B%E5%8D%887.32.43.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;WhyYouStarted&#x2F;PhotoGallery@master&#x2F;images&#x2F;Hadoop&#x2F;%E6%88%AA%E5%B1%8F2020-02-25%E4%B8%8B%E5%8D%888.07.15.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;WhyYouStarted&#x2F;PhotoGallery@master&#x2F;images&#x2F;Hadoop&#x2F;%E6%88%AA%E5%B1%8F2020-02-25%E4%B8%8B%E5%8D%888.07.40.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;WhyYouStarted&#x2F;PhotoGallery@master&#x2F;images&#x2F;Hadoop&#x2F;%E6%88%AA%E5%B1%8F2020-02-25%E4%B8%8B%E5%8D%888.08.01.png">
+<meta property="og:updated_time" content="2020-03-08T07:04:07.178Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;WhyYouStarted&#x2F;PhotoGallery@master&#x2F;images&#x2F;Hadoop&#x2F;%E6%88%AA%E5%B1%8F2020-02-21%E4%B8%8A%E5%8D%8810.49.33.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://whyyoustarted.github.io/2020/0221/build-a-fully-distributed-hadoop-cluster-under-ubuntu.html">
+  
+    <link rel="alternate" href="/atom.xml" title="初心" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css">
+  
+  
+  
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/whyyoustarted" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">初心</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Never forget why you started, and your mission can be accomplished.</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Inner Mongolia, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/whyyoustarted" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>不畏将来，不念过往</p> <p>本人主要使用mac，所以文章基本基于mac环境下</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hadoop/">Hadoop</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Maven/">Maven</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ubuntu/">Ubuntu</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/XML/">XML</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%B3%BB%E7%BB%9F/">系统</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hadoop/" rel="tag">Hadoop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JDK/" rel="tag">JDK</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/" rel="tag">Maven</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/" rel="tag">Oracle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" rel="tag">环境变量</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Hadoop/" style="font-size: 13px;">Hadoop</a> <a href="/tags/JDK/" style="font-size: 13px;">JDK</a> <a href="/tags/Maven/" style="font-size: 13.5px;">Maven</a> <a href="/tags/Oracle/" style="font-size: 13px;">Oracle</a> <a href="/tags/Ubuntu/" style="font-size: 14px;">Ubuntu</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 13.5px;">教程</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" style="font-size: 13px;">环境变量</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 13px;">笔记</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Ubuntu/">Ubuntu</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/0307/solution-to-sysctl-p-error.html" class="title">sysctl -p 报错问题的解决方法</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-03-07T00:43:27.000Z" itemprop="datePublished">2020-03-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Ubuntu/">Ubuntu</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/0307/install-oracle-11g-under-ubuntu-1604.html" class="title">Ubuntu 16.04下安装Oracle 11g</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-03-07T00:42:43.000Z" itemprop="datePublished">2020-03-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Hadoop/">Hadoop</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/0221/build-a-fully-distributed-hadoop-cluster-under-ubuntu.html" class="title">Ubuntu下搭建完全分布式Hadoop集群</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-02-21T02:10:27.000Z" itemprop="datePublished">2020-02-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Ubuntu/">Ubuntu</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/0218/installation-and-configuration-of-vim-under-ubuntu.html" class="title">Ubuntu下vim的安装以及配置</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-02-18T06:37:54.000Z" itemprop="datePublished">2020-02-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Ubuntu/">Ubuntu</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/0218/ubuntu-1604-sudo-cannot-resolve-host-solution.html" class="title">Ubuntu16.04 sudo:无法解析主机 解决方案</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-02-18T06:34:13.000Z" itemprop="datePublished">2020-02-18</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Ubuntu下搭建完全分布式Hadoop集群" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Ubuntu下搭建完全分布式Hadoop集群
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/0221/build-a-fully-distributed-hadoop-cluster-under-ubuntu.html" class="article-date">
+	  <time datetime="2020-02-21T02:10:27.000Z" itemprop="datePublished">2020-02-21</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Hadoop/">Hadoop</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/Hadoop/" rel="tag">Hadoop</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/0221/build-a-fully-distributed-hadoop-cluster-under-ubuntu.html#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.7k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 7(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <ol>
+<li><p>Hadoop的运行环境介绍</p>
+<p> hadoop主要有三种运行模式：单机模式、伪分布模式、完全分布模式。</p>
+<ul>
+<li><p>其中在单机模式下所有3个XML文件均为空，当配置文件为空时，Hadoop会完全运行在本地，因为不需要与其他节点交互，单机模式就不使用HDFS，也不加载任何Hadoop的守护进程。该模式主要用于开发调试MapReduce程序的应用逻辑。</p>
+</li>
+<li><p>在伪分布式模式下是指在“单节点集群”上运行Hadoop，其中所有的守护进程都运行在同一台机器上，即Jobtracker、Tasktracker、Namenode、Datanode、Secondarynamenode进程都运行在同一台主机上。该模式在单机模式之上增加了代码调试功能，允许你检查内存使用情况，HDFS输入输出，以及其他的守护进程交互。</p>
+</li>
+<li><p>完全分布式模式是将hadoop运行在了一个真正的集群上，该集群内含有一个主节点master，及至少两个的从节点slave；其中主节点上主要运行Namenode、Jobtracker、Secondarynamenode进程，从节点主要运行Datanode、Tasketracker进程。这种模式下可以真正实现hadoop的分布式处理，有主节点对从节点的任务分配调度以及HDFS在主机间的输入输出。</p>
+</li>
+</ul>
+</li>
+<li><p>Hadoop集群搭建准备工作</p>
+<p> 需要提前下载好的文件：</p>
+<ul>
+<li>ubuntu-16.04.5-desktop-amd64.iso</li>
+<li>jdk-8u144-linux-x64.tar</li>
+<li>hadoop-2.7.2.tar</li>
+</ul>
+</li>
+<li><p>虚拟机准备</p>
+<p> 在Parallels Desktop中新建一台虚拟机，快照并克隆三次，得到了三台虚拟机</p>
+<p> 注意：快照的是为了节省自己的硬盘空间</p>
+</li>
+<li><p>使三台虚拟机连通</p>
+<p> 先使用命令<code>ifconfig</code>查看三台虚拟机的ip地址</p>
+<p> <img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/Hadoop/%E6%88%AA%E5%B1%8F2020-02-21%E4%B8%8A%E5%8D%8810.49.33.png" alt=""></p>
+<p> <img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/Hadoop/%E6%88%AA%E5%B1%8F2020-02-21%E4%B8%8A%E5%8D%8810.49.40.png" alt=""></p>
+<p> <img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/Hadoop/%E6%88%AA%E5%B1%8F2020-02-21%E4%B8%8A%E5%8D%8810.49.49.png" alt=""></p>
+<p> 然后使用命令<code>sudo vim /etc/hostname</code>修改主机名</p>
+<p> <img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/Hadoop/%E6%88%AA%E5%B1%8F2020-02-21%E4%B8%8A%E5%8D%8811.01.17.png" alt=""></p>
+<p> <img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/Hadoop/%E6%88%AA%E5%B1%8F2020-02-21%E4%B8%8A%E5%8D%8811.00.52.png" alt=""></p>
+<p> 这里就拿一个演示，<strong>剩下的两台也改</strong></p>
+<p> 注意：我是以ip地址末尾来命名的，你也可以使用master，slave1，slave2命名，只要自己可以分辨出虚拟机是哪台就行</p>
+<p> 然后我们添加该局域网内的集群中其他虚拟主机ip</p>
+<p> 使用命令<code>sudo vim /etc/hosts</code>将和主机名一样的ip地址注释掉并添加三台主机的ip和主机名，修改具体情况如下：</p>
+<p> <img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/Hadoop/%E6%88%AA%E5%B1%8F2020-02-22%E4%B8%8A%E5%8D%889.18.42.png" alt=""></p>
+<p> 三台虚拟机都需要这样配置</p>
+<p> 然后使用命令<code>ping -c 3 hadoop7</code>测试互相可以ping通</p>
+<p> <img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/Hadoop/%E6%88%AA%E5%B1%8F2020-02-22%E4%B8%8A%E5%8D%889.22.19.png" alt=""></p>
+</li>
+<li><p>配置免密登陆</p>
+<p> 先使用命令<code>ssh localhost</code>，如果提示输入密码那么就代表你有ssh，如果出现<code>connect to host localhost port 22:Connection refused</code>那么请参考：<a href="https://whyyoustarted.github.io/2020/0216/ssh-under-ubuntu-connect-to-host-localhost-port-22-connection-refused.html">Ubuntu下 ssh : connect to host localhost port 22:Connection refused</a></p>
+<p> 安装好ssh后可以使用命令<code>ssh-keygen -t rsa -P &#39;&#39;</code>，提示输入密钥保存的路径，直接按enter键使用默认值即可</p>
+<p> 然后使用命令<code>ssh-copy-id hadoop6</code>将空钥发到本机，同样需要发到hadoop7，hadoop8</p>
+<p> 然后另两台服务器也需要这样配置</p>
+<p> 配置好后可以使用<code>ssh hadoop6</code>登录虚拟机，使用<code>exit</code>可以推出登录</p>
+</li>
+<li><p>安装JDK和Hadoop</p>
+<p> 使用命令<code>mkdir /opt/module /opt/software</code>在/opt下创建software和module文件夹</p>
+<p> 并使用命令<code>chown lzm:lzm /opt/module /opt/software</code>将所有权赋给当前用户</p>
+<p> 可以使用<code>ls -l</code>来进行查看</p>
+<p> <img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/Hadoop/%E6%88%AA%E5%B1%8F2020-02-22%E4%B8%8A%E5%8D%889.41.35.png" alt=""></p>
+<p> 将JDK和Hadoop的安装包复制到software文件夹，然后使用命令<code>tar -zxf hadoop-2.7.2.tar.gz -C /opt/module</code>，<code>tar -zxf jdk-8u144-linux-x64.tar.gz -C /opt/module</code>将其安装到module目录下</p>
+<p> 同样两台都进行配置</p>
+</li>
+<li><p>配置环境变量</p>
+<p> 使用命令<code>sudo vim /etc/profile</code>在文件后面添加</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#JAVA_HOME</span><br><span class="line">export JAVA_HOME=/opt/module/jdk1.8.0_144</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin</span><br><span class="line"></span><br><span class="line">#HADOOP_HOME</span><br><span class="line">export HADOOP_HOME=/opt/module/hadoop-2.7.2</span><br><span class="line">export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin</span><br></pre></td></tr></table></figure>
+
+<p> <img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/Hadoop/%E6%88%AA%E5%B1%8F2020-02-25%E4%B8%8B%E5%8D%887.33.27.png" alt=""></p>
+<p> 保存后使用命令<code>source /etc/profile</code>重新启动一下配置，然后使用<code>java -version</code>和<code>hadoop version</code>来测试一下环境变量是否配置完成</p>
+<p> <img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/Hadoop/%E6%88%AA%E5%B1%8F2020-02-25%E4%B8%8B%E5%8D%887.34.08.png" alt=""></p>
+<p> <img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/Hadoop/%E6%88%AA%E5%B1%8F2020-02-25%E4%B8%8B%E5%8D%887.32.34.png" alt=""></p>
+<p> <img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/Hadoop/%E6%88%AA%E5%B1%8F2020-02-25%E4%B8%8B%E5%8D%887.32.43.png" alt=""></p>
+<p> 另外两个虚拟机也是同样的</p>
+</li>
+<li><p>配置Hadoop</p>
+<ul>
+<li>注意：所有配置文件都在<code>$HADOOP_HOME/etc/hadoop</code></li>
+</ul>
+<ol>
+<li><p>首先配置<code>hadoop-env.sh</code>,<code>yarn-env.sh</code>,<code>mapred-env.sh</code>文件，在每个文件第二行添加 <code>export JAVA_HOME=/opt/module/jdk1.8.0_144</code></p>
+<p> <img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/Hadoop/%E6%88%AA%E5%B1%8F2020-02-25%E4%B8%8B%E5%8D%888.07.15.png" alt=""></p>
+<p> <img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/Hadoop/%E6%88%AA%E5%B1%8F2020-02-25%E4%B8%8B%E5%8D%888.07.40.png" alt=""></p>
+<p> <img src="https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/Hadoop/%E6%88%AA%E5%B1%8F2020-02-25%E4%B8%8B%E5%8D%888.08.01.png" alt=""></p>
+</li>
+</ol>
+</li>
+</ol>
+<pre><code>2. 配置`core-site.xml`，在文档中添加
+
+    <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 指定HDFS中NameNode的地址 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.defaultFS<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://hadoop6:9000<span class="tag">&lt;/<span class="name">value</span>&gt;</span><span class="comment">&lt;!-- 这里改成自己的主机名 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- 指定Hadoop运行时产生文件的存储目录 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.tmp.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">value</span>&gt;</span>/opt/module/hadoop-2.7.2/data/tmp<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+    ![](https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/Hadoop/截屏2020-02-25下午8.11.02.png)
+
+3. 配置`hdfs-site.xml`，在文档中添加
+
+    <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 数据的副本数量 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.replication<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">value</span>&gt;</span>3<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 指定Hadoop辅助名称节点主机配置 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.secondary.http-address<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">value</span>&gt;</span>hadoop8:50090<span class="tag">&lt;/<span class="name">value</span>&gt;</span><span class="comment">&lt;!-- 这里改成自己的主机名 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+    ![](https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/Hadoop/截屏2020-02-25下午8.39.01.png)
+
+4. 配置`yarn-site.xml`，在文档中添加
+
+    <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Site specific YARN configuration properties --&gt;</span></span><br><span class="line">       <span class="comment">&lt;!-- Reducer获取数据的方式 --&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.nodemanager.aux-services<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">value</span>&gt;</span>mapreduce_shuffle<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">       <span class="comment">&lt;!-- 指定YARN的ResourceManager的地址 --&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.hostname<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">value</span>&gt;</span>hadoop7<span class="tag">&lt;/<span class="name">value</span>&gt;</span><span class="comment">&lt;!-- 这里改成自己的主机名 --&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">       <span class="comment">&lt;!-- 日志聚集功能使能 --&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.log-aggregation-enable<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">       <span class="comment">&lt;!-- 日志保留时间设置7天 --&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.log-aggregation.retain-seconds<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">value</span>&gt;</span>604800<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+    ![](https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/Hadoop/截屏2020-02-25下午8.11.35.png)
+
+5. 配置`mapred-site.xml`，这个文档先需要使用命令`cp mapred-site.xml.template mapred-site.xml`复制一份然后在文档中添加
+
+    <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapreduce.framework.name<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">value</span>&gt;</span>yarn<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="comment">&lt;!-- 历史服务器端地址 --&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapreduce.jobhistory.address<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">value</span>&gt;</span>hadoop8:10020<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="comment">&lt;!-- 历史服务器web端地址 --&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapreduce.jobhistory.webapp.address<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">value</span>&gt;</span>hadoop8:19888<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+    ![](https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/Hadoop/截屏2020-02-25下午8.12.08.png)
+
+6. 配置`slaves`，在文档中添加
+
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hadoop6</span><br><span class="line">hadoop7</span><br><span class="line">hadoop8</span><br></pre></td></tr></table></figure>
+
+    ![](https://cdn.jsdelivr.net/gh/WhyYouStarted/PhotoGallery@master/images/Hadoop/截屏2020-02-25下午8.40.16.png)
+
+这样一台虚拟机就配置好了，我们可以讲以上步骤重复一遍或者使用命令`rsync -av/opt/module/hadoop-2.7.2/etc  lzm@hadoop7:/opt/module/hadoop-2.7.2/etc`，hadoop8也是一样</code></pre>
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://whyyoustarted.github.io/2020/0221/build-a-fully-distributed-hadoop-cluster-under-ubuntu.html" title="Ubuntu下搭建完全分布式Hadoop集群" target="_blank" rel="external">https://whyyoustarted.github.io/2020/0221/build-a-fully-distributed-hadoop-cluster-under-ubuntu.html</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/whyyoustarted" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/whyyoustarted" target="_blank"><span class="text-dark">初心</span><small class="ml-1x">Never forget why you started, and your mission can be accomplished.</small></a></h3>
+        <div>可怕的是，比你优秀的人比你还要努力。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2020/0307/install-oracle-11g-under-ubuntu-1604.html" title="Ubuntu 16.04下安装Oracle 11g"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2020/0218/installation-and-configuration-of-vim-under-ubuntu.html" title="Ubuntu下vim的安装以及配置"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/whyyoustarted" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2020 Liu zhimin
+        
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+<link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
+<script src="https://billts.site/js/gitment.js"></script>
+<!--<script src="//cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js"></script>-->
+<script>
+var gitment = new Gitment({
+  // id默认为当前页面url，如果url后带参数或锚点，gitment要重新初始化
+  // https://github.com/imsun/gitment/issues/55
+  // 解决方案：id:window.location.pathname,或者将id设置为当前页面标题
+  id: 'Ubuntu下搭建完全分布式Hadoop集群', 
+  owner: 'WhyYouStarted', // 可以是你的GitHub用户名，也可以是github id
+  repo: 'comment',
+  oauth: {
+    client_id: '0b6919cdd12556e13dcb',
+    client_secret: 'a1a1d6b9306a128f088075f81b71972667fa0328',
+  }
+})
+gitment.render('comments')
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
